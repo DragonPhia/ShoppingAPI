@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    
+    <style>
+        
+        .header {
+            padding: 4px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 30px;
+          }
+        
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+          }
+
+          button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+          }
+          
+    </style>
+    
+    <head>
+        <title>Shoppeasy/Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+    </head>
+    
+    <body>
+        
+        <div class="header">
+            
+            <h1> Login </h1>
+            <p align="left"><a href="index.html">Home Page</a></p>
+        </div>
+        
+
+        <form action="/action_page.php" method="post">
+        <div class="imgcontainer">
+            <img src="(INSERT IMAGE HERE)" alt="(INSERT IMAGE HERE)" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            
+            <label><input type="checkbox" checked="checked" name="remember"> Remember me </label>
+            
+        </div>
+    </body>
+</html>
