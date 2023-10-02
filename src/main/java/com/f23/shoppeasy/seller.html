@@ -85,6 +85,7 @@
         <div class="nav-top">
             <a class="active" href="index.html">Home</a>
             <input type="text" placeholder="Search for anything">
+            <div class="nav-item"><a href='search.html'><img src="glass.png" alt="glass" width="20px"/></a></div>
             <div class="nav-item"><a href='login.html'>Profile</a></div>
             <div class="nav-item"><a href='about.html'>About</a></div>
             <div class="nav-item"><a href='contact.html'>Contact</a></div>
@@ -176,7 +177,7 @@
                                 var columns = document.getElementsByClassName('column');
                                 var createListingButton = document.getElementById('createListing');
 
-                                var firstElement = elements[Math.floor(Math.random() * 3)].cloneNode(true);
+                                var firstElement = elements[0].cloneNode(true);
 
                                 var insertPoint;
 
