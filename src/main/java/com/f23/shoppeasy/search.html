@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shoppeasy. Search page</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        .listing-nav {
+            border: none;
+            padding: 5px;
+            margin: auto;
+
+            width: 75vw;
+            height: 50vw;
+
+            overflow: scroll;
+        }
+
+        .listing-nav .column {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+        }
+
+        
+        .listing-nav .entry {
+            margin: auto;
+            padding: 0px 10px;
+            border: 1px solid black;
+            border-radius: 3px;
+            width: 95%;
+            height: 95%;
+
+            display: flex;
+            flex-direction: row;
+            flex-basis: 100%;
+            flex: 1;
+        }
+
+        .listing-nav .entry p {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style='background-color: white;'>
+
+    <!-- Nav Bar -->
+    <div class="nav-top">
+        <a class="active" href="index.html">Home</a>
+        <input type="text" placeholder="Search for anything">
+        <div class="nav-item"><a href='login.html'>Profile</a></div>
+        <div class="nav-item"><a href='admin.html'>Admin</a></div>
+        <div class="nav-item"><a href='seller.html'>Seller</a></div>
+        <div class="nav-item"><a href='contact.html'>Contact</a></div>
+        <div class="nav-item"><a href='cart.html'>Cart</a></div>
+    </div>
+
+    <div class="listing-nav">
+        <div class="column">
+            <div class="entry">
+                <p>Golden Statue of Tutankhamun</p>
+                <p>2,500.00 USD</p>
+            </div>
+            <div class="entry">
+                <p>Individually Packaged Pepperoni</p>
+                <p>0.01 USD</p>
+            </div>
+            <div class="entry">
+                <p>Unity Unit Cube</p>
+                <p>25.00 USD</p>
+            </div>
+            <div class="entry">
+                <p>Ghostwriting Services (YA)</p>
+                <p>5000.00 USD</p>
+            </div>
+        </div>
+    </div>
+</body>
