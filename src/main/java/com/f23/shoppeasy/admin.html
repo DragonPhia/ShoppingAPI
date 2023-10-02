@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
-
     <head>
-        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Shoppeasy. Find everything you need here!</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
         <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Create two equal columns that floats next to each other */
+            .column {
+                float: left;
+                width: 50%;
+                padding: 10px;
+                height: 300px; /* Should be removed. Only for demonstration */
+                text-align: center;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
             body {
                 font-family: Georgia, 'Times New Roman', Times, serif
             }
-            
-            h1 {
-                font-family: "Sans-serif";
-                letter-spacing: 1px;
-                font-size: 70px;
-            }
-            
+
             h1, h2, p {
                 font-family: "Sans-serif";
                 letter-spacing: 1px;
@@ -28,7 +38,7 @@
 
             .nav-top {
                 overflow: hidden;
-                
+
                 background-color: #e9e9e9;
                 height: 50px;
                 border-bottom: 1px solid #8034eb;
@@ -100,7 +110,7 @@
                 resize: vertical;
             }
 
-            input[type=submit] {    
+            input[type=submit] {
                 background-color: brown;
                 color: white;
                 padding: 12px 20px;
@@ -124,56 +134,30 @@
                     border: 1px solid #ccc;
                 }
 
-                .user {
-                    width: 11em;
-                    border: 3px solid #DE3163;
-                    box-shadow: 9px 6px 4px #5B2C6F;
-                    padding: 7px 11px;
-                    background-image: linear-gradient(150deg, #EAFAF1 , #E8DAEF 30%,#E5E8E8 );
-                }
-                
-                /* Create two equal columns that floats next to each other */
-                .column {
-                  float: left;
-                  width: 50%;
-                  padding: 10px;
-                  
-                }
-
-                /* Clear floats after the columns */
-                .row:after {
-                  content: "";
-                  display: table;
-                  clear: both;
-                }
-                
                 .button {
-                    background-color: #4CAF50;
+                    background-color: #4CAF50; /* Green */
                     border: none;
                     color: white;
-                    padding: 15px 32px;
+                    padding: 20px 32px;
                     text-align: center;
                     text-decoration: none;
                     display: inline-block;
                     font-size: 16px;
-                    margin: 4px 2px;
-                    cursor: pointer;
-                  }
-                  
-                form { float: left; }
-                
+                }
+
+
             </style>
         </head>
+        <body>
 
-        <!-- Nav Bar -->
+            <!-- Nav Bar -->
         <body style='background-color: white;'>
             <div class="nav-top">
                 <a class="active" href="index.html">Home</a>
-                <div><p style="font-size: 26px"><font color="purple"> Shoppeasy </font></div>
                 <input type="text" placeholder="Search for anything">
                 <div class="nav-item"><a href='search.html'><img src="glass.png" alt="glass" width="20px"/></a></div>
                 <div class="nav-item"><a href='profile.html'>Profile</a></div>
-                <div class="nav-item"><a href='about.html'>About</a></div>
+                <div class="nav-item"><a href='admin.html'>Admin</a></div>
                 <div class="nav-item"><a href='contact.html'>Contact</a></div>
                 <div class="nav-item"><a href='cart.html'>Cart</a></div>
             </div>
@@ -186,36 +170,53 @@
                 <p>Est. 2020</p>
             </div>
 
-            <!-- Content -->
+            <footer class="copyright">
 
-            <div class="row">
-                <div class="column" style="background-color:#aaa;">
-                    <h2> <img src="usericon.png" alt="userlogo" width="200" height="200"></h2>
-                    <p style="font-size: 35px">Dragon Phiansin 
-                     
-                    <form action="http://google.com"> <input type="submit" value="Delete User"  style="font-size:15px;height: 40px; width: 120px;background-color: red;"></form>
-                    <form action="http://google.com"> <input type="submit" value="Message User"  style="font-size:15px;height: 40px; width: 120px;background-color: green;"></form>
+                <center><p style="font-size: 30px"><a href="url">Add Promotions</a></center>
+            </footer>
+
+            <div class="container">
+                <div class="row">
+                    <div class="column" style="background-color:#aaa;">
+                        <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
+                        <p style="font-size: 25px">Dragon Phiansin </p>
+                        <button class="button">Delete</button>
+                        <button class="button">Message</button>
+                        <button class="button">Manage List</button>
+                    </div>
+                    <div class="column" style="background-color:#bbb;">
+                        <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
+                        <p style="font-size: 25px">Jeong Kim </p>
+                        <button class="button">Delete</button>
+                        <button class="button">Message</button>
+                        <button class="button">Manage List</button>
+                    </div>
                 </div>
-                
-                <div class="column" style="background-color:#bbb;">
-                  <h2> <img src="usericon.png" alt="userlogo" width="200" height="200"></h2>
-                  <p style="font-size: 35px">Jeong Kim</p>
-                  <form action="http://google.com"> <input type="submit" value="Delete User"  style="font-size:15px;height: 40px; width: 120px;background-color: red;"></form>
-                  <form action="http://google.com"> <input type="submit" value="Message User"  style="font-size:15px;height: 40px; width: 120px;background-color: green;"></form>
-                </div>
-                
-                <div class="column" style="background-color:#aaa;">
-                  <h2> <img src="usericon.png" alt="userlogo" width="200" height="200"></h2>
-                  <p style="font-size: 35px">Samuel Johnson</p>
-                  <form action="http://google.com"> <input type="submit" value="Delete User"  style="font-size:15px;height: 40px; width: 120px;background-color: red;"></form>
-                  <form action="http://google.com"> <input type="submit" value="Message User"  style="font-size:15px;height: 40px; width: 120px;background-color: green;"></form>
+                <div class="row">
+                    <div class="column" style="background-color:#bbb;">
+                        <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
+                        <div>
+                            <p style="font-size: 25px">Samuel Johnson </p> 
+
+                            <button class="button">Delete</button>
+                            <button class="button">Message</button>
+                            <button class="button">Manage List</button>
+                        </div>
+
+                    </div>
+                    <div class="column" style="background-color:#aaa;">
+                        <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
+                        <p style="font-size: 25px">Random User </p>
+                        <button class="button">Delete</button>
+                        <button class="button">Message</button>
+                        <button class="button">Manage List</button>
+                    </div>
                 </div>
             </div>
-            
-            
+
             <!-- Footer -->
             <footer class="copyright">
                 <p>Copyright © 2020-2023 Shoppeasy Inc. All rights reserved.</p>
-            </footer>  
+            </footer>
         </body>
     </html>
