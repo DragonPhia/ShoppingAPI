@@ -61,6 +61,11 @@
             }
 
             .listing-nav .entry .interacts div > div {
+                background-color: #8034eb;
+                border-radius: 6px;
+                padding: 2px;
+                margin: auto;
+
                 width: 0;
                 height: 0;
                 opacity: 0;
@@ -69,7 +74,7 @@
 
             .listing-nav .entry .interacts div:hover > div {
                 width: 10vw;
-                height: 5vh;
+                height: 20vh;
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -97,7 +102,7 @@
             <div class="row">
                 <div class="column">
                     <div class="entry">
-                        <p class="head">Test</p>
+                        <p class="head">Alphabet Soup</p>
                         <div class="interacts">
                             <div>
                                 <p>Manage Listing</p>
@@ -130,13 +135,104 @@
                         </div>
                     </div>
                     <div class="entry">
-                        <p class="head">End of List</p>
-                        <button type="createNew" style="margin: 5px;">Create New Listing</button>
+                        <p class="head">Some Brand (TM) Shampoo</p>
+                        <div class="interacts">
+                            <div>
+                                <p>Manage Listing</p>
+                                <div>
+                                    <p>Delete Listing</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Discount Listing</p>
+                                <div>
+                                    <p>Percentage:</p>
+                                    <form action="https://www.google.com">
+                                        <input type="text" id="message" />
+                                    </form>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Message Buyer</p>
+                                <div>
+                                    <select name="user" id="user" style="display: table-cell;">
+                                        <option value="dragon">Dragon Phiansin</option>
+                                        <option value="jeong">Jeong Kim</option>
+                                        <option value="samuel">Samuel Johnson</option>
+                                    </select>
+                                    <form action="https://www.google.com" style="display: table-cell;">
+                                        <input type="text" id="message" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="entry listingEntry">
+                        <button id="createListing" style="margin: 5px;" onclick="addListing()">Create New Listing</button>
+                        <script>
+                            function addListing() {
+                                var elements = document.getElementsByClassName('entry');
+                                var columns = document.getElementsByClassName('column');
+                                var createListingButton = document.getElementById('createListing');
+
+                                var firstElement = elements[Math.floor(Math.random() * 3)].cloneNode(true);
+
+                                var insertPoint;
+
+                                if (createListingButton.hasAttribute('toggled')) {
+                                    insertPoint = columns[1];
+                                    insertPoint.appendChild(firstElement);
+
+                                    createListingButton.removeAttribute('toggled');
+                                } else {
+                                    var listingEntries = document.getElementsByClassName('listingEntry');
+                                    var listingEntry = listingEntries[0];
+
+                                    insertPoint = columns[0];
+                                    insertPoint.insertBefore(firstElement, listingEntry);
+
+                                    createListingButton.setAttribute('toggled', '');
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
                 <div class="column">
                     <div class="entry">
                         <p class="head">Grand Piano</p>
+                        <div class="interacts">
+                            <div>
+                                <p>Manage Listing</p>
+                                <div>
+                                    <p>Delete Listing</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Discount Listing</p>
+                                <div>
+                                    <p>Percentage:</p>
+                                    <form action="https://www.google.com">
+                                        <input type="text" id="message" />
+                                    </form>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Message Buyer</p>
+                                <div>
+                                    <select name="user" id="user" style="display: table-cell;">
+                                        <option value="dragon">Dragon Phiansin</option>
+                                        <option value="jeong">Jeong Kim</option>
+                                        <option value="samuel">Samuel Johnson</option>
+                                    </select>
+                                    <form action="https://www.google.com" style="display: table-cell;">
+                                        <input type="text" id="message" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <p class="head">Free Sandwiches</p>
                         <div class="interacts">
                             <div>
                                 <p>Manage Listing</p>
