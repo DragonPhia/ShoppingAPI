@@ -136,18 +136,6 @@
                     border: 1px solid #ccc;
                 }
 
-                .button {
-                    background-color: #4CAF50; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 20px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 2px;
-                }
-
-
             </style>
         </head>
         <body>
@@ -157,8 +145,9 @@
             <div class="nav-top">
                 <a class="active" href="index.html">Home</a>
                 <input type="text" placeholder="Search for anything">
-                <div class="nav-item"><a href='profile.html'>Profile</a></div>
+                <div class="nav-item"><a href='login.html'>Profile</a></div>
                 <div class="nav-item"><a href='admin.html'>Admin</a></div>
+                <div class="nav-item"><a href='aboutus.html'>About</a></div>
                 <div class="nav-item"><a href='contact.html'>Contact</a></div>
                 <div class="nav-item"><a href='cart.html'>Cart</a></div>
             </div>
@@ -166,7 +155,7 @@
 
             <!-- Header -->
             <div class="header">
-                <h1>Admin</h1>
+                <h1 style="font-size: 70px">Administration</h1>
                 <p>Premium brand mall</p>
                 <p>Est. 2020</p>
             </div>
@@ -176,7 +165,7 @@
 
                 <center>
                     <button ondblclick="myPromo()"style="height:100px;
-                    width:300px"> Add Promotion </button>
+                            width:300px"> Add Promotion </button>
                 </center>
             </footer>
 
@@ -212,7 +201,7 @@
                     <div class="column">
                         <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
                         <p style="font-size: 25px">Random User </p>
-                        <button ondblclick="myDelete()"> Delete </button>
+                        <button ondblclick="myalert()"> Delete </button>
                         <button onclick="myMessage()"> Message </button>
                         <button class="button">Manage List</button>
                     </div>
@@ -221,9 +210,13 @@
 
             <script>
                 function myalert() {
-                    alert("Are you sure you want to delete User?");
+                    var answer = window.confirm("Are you sure you want to delete user?");
+                    if (answer) {
+                        //some code
+                    } else {
+                        //some code
+                    }
                 }
-
             </script>       
 
             <script>
