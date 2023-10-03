@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shoppeasy. Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+
+  <style>
+    h1,
+    h2,
+    p {
+      font-family: "Sans-serif";
+      letter-spacing: 1px;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    .nav-top {
+      overflow: hidden;
+      background-color: #e9e9e9;
+      height: 50px;
+      border-bottom: 1px solid #8034eb;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-top a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .nav-top a:hover {
+      background-color: #481491;
+      color: white;
+    }
+
+    .nav-top a.active {
+      background-color: #e7d6ff;
+      color: black;
+    }
+
+    .nav-top input[type=text] {
+      float: right;
+      padding: 6px;
+      margin-left: 30px;
+      margin-top: 8px;
+      margin-right: 16px;
+      font-size: 17px;
+    }
+
+    .nav-right {
+      font-family: sans-serif;
+      display: flex;
+      margin-left: auto;
+    }
+
+    .nav-item {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .header {
+      padding: 30px;
+      margin-left: 20%;
+      margin-right: 20%;
+      text-align: center;
+      background: #481491;
+      color: white;
+    }
+
+    .copyright {
+      padding: 15px;
+      text-align: left;
+      background: #ede0ff
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+
+    input[type=submit] {
+      background-color: brown;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .column {
+      float: left;
+      width: 20%;
+      padding: 35px;
+    }
+
+    .row {
+      margin: 0 -5px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .container-fluid {
+      width: 100%;
+      font-family: sans-serif;
+      display: flex;
+      margin-left: auto;
+      justify-content: space-evenly;
+      align-content: center;
+    }
+
+    .col-1 {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .star-rating {
+      margin: 25px 0 0px;
+      font-size: 0;
+      white-space: nowrap;
+      display: inline-block;
+      width: 175px;
+      height: 35px;
+      overflow: hidden;
+      position: relative;
+      background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+      background-size: contain;
+    }
+
+    .star-rating i {
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 20%;
+      z-index: 1;
+      background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+      background-size: contain;
+    }
+
+    .star-rating input {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      opacity: 0;
+      display: inline-block;
+      width: 20%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .star-rating input:hover+i,
+    .star-rating input:checked+i {
+      opacity: 1;
+    }
+
+    .star-rating i~i {
+      width: 40%;
+    }
+
+    .star-rating i~i~i {
+      width: 60%;
+    }
+
+    .star-rating i~i~i~i {
+      width: 80%;
+    }
+
+    .star-rating i~i~i~i~i {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<!-- Nav Bar -->
+
+<body style='background-color: white;'>
+  <div class="nav-top">
+    <a class="active" href="index.html">Home</a>
+    <input type="text" placeholder="Search for anything">
+    <div class="nav-item"><a href='profile.html'>Profile</a></div>
+    <div class="nav-item"><a href='about.html'>About</a></div>
+    <div class="nav-item"><a href='contact.html'>Contact</a></div>
+    <div class="nav-item"><a href='cart.html'>Cart</a></div>
+    <div class="nav-item"><a href='/'>Logout</a></div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Profile</h1>
+  </div>
+
+  <!-- Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center mb-3">
+        <span class="fs-1 text-primary fw-bold">Purchase History</span>
+      </div>
+
+      <div class="col-12">
+        <div class="row">
+
+          <div class="col-1 bg-light">
+            <label class="form-label fw-bold">Order #</label>
+          </div>
+          <div class="col-1 bg-light">
+            <label class="form-label fw-bold">Item Name</label>
+          </div>
+          <div class="col-1 bg-light">
+            <label class="form-label fw-bold">Qty.</label>
+          </div>
+          <div class="col-1 bg-light">
+            <label class="form-label fw-bold">Amount</label>
+          </div>
+          <div class="col-1 bg-light">
+            <label class="form-label fw-bold">Purchased Date</label>
+          </div>
+          <div class="col-3 bg-light"></div>
+          <div class="col-12">
+            <hr color="#8034eb" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row">
+
+          <div class="col-12 col-lg-1 bg-info text-center text-lg-start">
+            <label class="form-label text-white fs-6 py-5">000001</label>
+          </div>
+          <div class="col-12 col-lg-3">
+            <div class="card mx-0 mx-lg-3 my-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img width="15%" height="15%" src="iphone.jpg" class="img-fluid rounded-start" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Apple iPhone 14</h5>
+                    <p class="card-text"><b>Seller: </b>Samuel</p>
+                    <p class="card-text"><b>Price: </b> 799.99 USD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-1 text-center text-lg-end">
+            <label class="form-label fs-4 py-5">1</label>
+          </div>
+          <div class="col-12 col-lg-2 bg-info text-center text-lg-end">
+            <label class="form-label text-white fs-5 py-5">799.99 USD</label>
+          </div>
+          <div class="col-12 col-lg-3">
+            <div class="row">
+              <div class="col-6 d-grid">
+                <h2>Rating</h2>
+                <span class="star-rating">
+                  <input type="radio" name="rating" value="1"><i></i>
+                  <input type="radio" name="rating" value="2"><i></i>
+                  <input type="radio" name="rating" value="3"><i></i>
+                  <input type="radio" name="rating" value="4"><i></i>
+                  <input type="radio" name="rating" value="5"><i></i>
+                </span>
+
+                <button class="btn btn-secondary border border-1 fs-5 rounded mt-5 border-primary">
+                  <i class="bi bi-info-circle-fill"></i>Leave Rating
+                </button>
+              </div>
+              <div class="col-6 d-grid">
+                <button class="btn btn-danger fs-5 rounded mt-5">
+                  <i class="bi bi-trash3-fill"></i>Send Message
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <hr color="#8034eb" />
+      </div>
+
+      <!-- Footer -->
+      <footer class="copyright">
+        <p>Copyright © 2020-2023 Shoppeasy Inc. All rights reserved.</p>
+      </footer>
+</body>
+
+</html>
