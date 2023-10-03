@@ -159,7 +159,6 @@
                 <input type="text" placeholder="Search for anything">
                 <div class="nav-item"><a href='profile.html'>Profile</a></div>
                 <div class="nav-item"><a href='admin.html'>Admin</a></div>
-                <div class="nav-item"><a href='aboutus.html'>About</a></div>
                 <div class="nav-item"><a href='contact.html'>Contact</a></div>
                 <div class="nav-item"><a href='cart.html'>Cart</a></div>
             </div>
@@ -174,7 +173,11 @@
 
             <footer class="copyright">
 
-                <center><p style="font-size: 30px"><a href="url">Add Promotions</a></center>
+
+                <center>
+                    <button ondblclick="myPromo()"style="height:100px;
+                    width:300px"> Add Promotion </button>
+                </center>
             </footer>
 
             <div class="container">
@@ -182,15 +185,15 @@
                     <div class="column">
                         <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
                         <p style="font-size: 25px">Dragon Phiansin </p>
-                        <button class="button">Delete</button>
-                        <button class="button">Message</button>
+                        <button ondblclick="myalert()"> Delete </button>
+                        <button onclick="myMessage()"> Message </button>
                         <button class="button">Manage List</button>
                     </div>
                     <div class="column" >
                         <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
                         <p style="font-size: 25px">Jeong Kim </p>
-                        <button class="button">Delete</button>
-                        <button class="button">Message</button>
+                        <button ondblclick="myalert()"> Delete </button>
+                        <button onclick="myMessage()"> Message </button>
                         <button class="button">Manage List</button>
                     </div>
                 </div>
@@ -200,8 +203,8 @@
                         <div>
                             <p style="font-size: 25px">Samuel Johnson </p> 
 
-                            <button class="button">Delete</button>
-                            <button class="button">Message</button>
+                            <button ondblclick="myalert()"> Delete </button>
+                            <button onclick="myMessage()"> Message </button>
                             <button class="button">Manage List</button>
                         </div>
 
@@ -209,12 +212,34 @@
                     <div class="column">
                         <h2><img src="usericon.png" alt="userlogo" width="150" height="150"></h2>
                         <p style="font-size: 25px">Random User </p>
-                        <button class="button">Delete</button>
-                        <button class="button">Message</button>
+                        <button ondblclick="myDelete()"> Delete </button>
+                        <button onclick="myMessage()"> Message </button>
                         <button class="button">Manage List</button>
                     </div>
                 </div>
             </div>
+
+            <script>
+                function myalert() {
+                    alert("Are you sure you want to delete User?");
+                }
+
+            </script>       
+
+            <script>
+                function myMessage() {
+                    let message = prompt("Please enter message: ");
+
+                }
+            </script>
+
+            <script>
+                function myPromo() {
+                    let promo = prompt("Please enter promo code: ");
+
+                }
+            </script>
+
 
             <!-- Footer -->
             <footer class="copyright">
