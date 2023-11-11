@@ -4,10 +4,11 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Shoppeasy. Find everything you need here!</title>
+        <title>Shoppeasy. Search page</title>
         <link th:href="@{style.css}" rel="stylesheet" type="text/css" />
+        
         <style>
-            body {
+                        body {
                 font-family: Georgia, 'Times New Roman', Times, serif
             }
 
@@ -118,37 +119,68 @@
                     border: 1px solid #ccc;
                 }
             }
-            </style>
-        </head>
+            
+            .listing-nav {
+                border: none;
+                padding: 5px;
+                margin: auto;
+
+                width: 75vw;
+                height: 50vw;
+
+                overflow: scroll;
+            }
+
+            .listing-nav .column {
+                display: flex;
+                flex-direction: column;
+                flex-basis: 100%;
+                flex: 1;
+            }
+
+
+            .listing-nav .entry {
+                margin: auto;
+                padding: 0px 10px;
+                border: 1px solid black;
+                border-radius: 3px;
+                width: 95%;
+                height: 95%;
+
+                display: flex;
+                flex-direction: row;
+                flex-basis: 100%;
+                flex: 1;
+            }
+
+            .listing-nav .entry p {
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body style='background-color: white;'>
 
         <!-- Nav Bar -->
-        <body style='background-color: white;'>
-            <div class="nav-top">
-                <a class="active" href="index.html">Home</a>
-                <input type="text" placeholder="Search for anything" th:href="@{/search}" />
-                <div class="nav-item"><a th:href="@{/listings/search}" ><img src="glass.png" alt="glass" width="20px"/></a></div>
-                <div class="nav-item"><a th:href="@{/login}">Login</a></div>
-                <div class="nav-item"><a href='admin.html'>Admin</a></div>
-                <div class="nav-item"><a href='seller.html'>Seller</a></div>
-                <div class="nav-item"><a th:href='@{/about-us}'>About</a></div>
-                <div class="nav-item"><a th:href='@{/contact}'>Contact</a></div>
-                <div class="nav-item"><a href='cart.html'>Cart</a></div>
-            </div>
-   
-
-        <!-- Header -->
-        <div class="header">
-            <h1>Shoppeasy</h1>
-            <p>Premium brand mall</p>
-            <p>Est. 2020</p>
+        <div class="nav-top">
+            <a class="active" href="index.html">Home</a>
+            <input type="text" placeholder="Search for anything" />
+            <div class="nav-item"><a href='search.html'><img src="glass.png" alt="glass" width="20px"/></a></div>
+            <div class="nav-item"><a href='login.html'>Profile</a></div>
+            <div class="nav-item"><a href='admin.html'>Admin</a></div>
+            <div class="nav-item"><a href='seller.html'>Seller</a></div>
+            <div class="nav-item"><a href='aboutus.html'>About</a></div>
+            <div class="nav-item"><a href='contact.html'>Contact</a></div>
+            <div class="nav-item"><a href='cart.html'>Cart</a></div>
         </div>
 
-        <!-- Content -->
-
-
-        <!-- Footer -->
-        <footer class="copyright">
-            <p>Copyright © 2020-2023 Shoppeasy Inc. All rights reserved.</p>
-        </footer>  
+        <div class="listing-nav">
+            <div class="column">
+                <div class="entry" th:each="listing : ${listingList}">
+                    <p><a th:href="@{/listings/id={id}(id=${listing.id})}" th:text="${listing.id}" /></p>
+                    <p th:text="${listing.name}" />
+                    <p th:text="${listing.price}" />
+                </div>
+            </div>
+        </div>
     </body>
 </html>

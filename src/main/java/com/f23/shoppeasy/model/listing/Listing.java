@@ -1,6 +1,8 @@
-package com.f23.shoppeasy.listing;
+package com.f23.shoppeasy.model.listing;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,10 +14,10 @@ import lombok.Setter;
 
 /**
  *
- * @author samue
+ * @author Samuel Johnson
  */
 @Entity
-@Table(name = "listing")
+@Table(name = "listings")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -23,14 +25,16 @@ import lombok.Setter;
 public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int listingId;
+    private long id;
     
     private int price;
     private int discount;
     private int sellerId;
     private String name;
-    private int status;
     private String deliveryOrigin;
+    
+    @Enumerated(EnumType.STRING)
+    private ListingStatus status;
     
     public Listing(int price,
             int sellerId,
@@ -43,6 +47,6 @@ public class Listing {
         this.deliveryOrigin = deliveryOrigin;
         
         this.discount = 0;
-        this.status = 0;
+        this.status = ListingStatus.AVAILABLE;
     }
 }
