@@ -27,8 +27,8 @@ public class Listing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    private int price;
-    private int discount;
+    private double price;
+    private double discount;
     private int sellerId;
     private String name;
     private String deliveryOrigin;

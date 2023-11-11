@@ -24,26 +24,26 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private long id;
     
     private String name;
+    private String password;
     private String email;
     private String location;
-    private int age;
     
     @Enumerated(EnumType.STRING)
     private UserAccountType accountType;
     
     public User(String name,
+            String password,
             String email,
             String location,
-            int age,
             UserAccountType accountType) {
         
         this.name = name;
+        this.password = password;
         this.email = email;
         this.location = location;
-        this.age = age;
         this.accountType = accountType;
     }
 }

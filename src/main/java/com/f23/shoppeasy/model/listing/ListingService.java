@@ -29,6 +29,10 @@ public class ListingService {
         return repository.findAll();
     }
     
+    public List<Listing> getBySellerId(long sellerId) {
+        return repository.getAllBySellerId(sellerId);
+    }
+    
     public Listing getbyId(long id) {
         return repository.getReferenceById(id);
     }
