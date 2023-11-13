@@ -22,43 +22,19 @@ public class UserController {
     @GetMapping("/all")
     public String getAllUsers(Model model) {
         model.addAttribute("userList", service.getAllUsers());
-        return "user/list-user";
+        return "user/userListing";
     }
 
     @GetMapping("/id={id}")
     public String getUser(@PathVariable long id, Model model) {
         model.addAttribute("user", service.getUser(id));
-        return "user/user-detail";
+        return "user/userDetails";
     }
 
     @GetMapping("/delete/id={id}")
     public String deleteUser(@PathVariable long id, Model model) {
         service.deleteUser(id);
         return "redirect:/user/all";
-    }
-
-    @PostMapping("/create")
-    public String createUser(User user) {
-
-        service.saveUser(user);
-        return "redirect:/user/all";
-    }
-
-    @PostMapping("/update")
-    public String updateUser(User user) {
-        service.updateUser(user);
-        return "redirect:/user/all";
-    }
-
-    @GetMapping("/new-user")
-    public String newUserForm(Model model) {
-        return "user/new-user";
-    }
-
-    @GetMapping("/update/id={id}")
-    public String updateUserForm(@PathVariable long id, Model model) {
-        model.addAttribute("user", service.getUser(id));
-        return "user/update-user";
     }
 
 }
