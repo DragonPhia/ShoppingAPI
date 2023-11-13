@@ -27,12 +27,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String userName;
+    private String username;
     private String email;
 
-    public User(String userName, String email) {
-        this.userName = userName;
+    public User(String username, String email) {
+        this.username = username;
         this.email = email;
     }
-
 }
