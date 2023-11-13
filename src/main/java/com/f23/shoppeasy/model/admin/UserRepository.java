@@ -22,11 +22,11 @@ public class UserRepository {
 
     List<User> findAll() {
 
-        String query = "select id, user_name,email from user";
+        String query = "select id, username,email from user";
         return template.query(query,
                 (result, rowNum)
                 -> new User(result.getLong("id"),
-                        result.getString("user_name"), result.getString(
+                        result.getString("username"), result.getString(
                         "email")));
     }
 
@@ -38,29 +38,11 @@ public class UserRepository {
                 BeanPropertyRowMapper.newInstance(User.class));
     }
 
-    public int saveUser(User user) {
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("user_name", user.getUserName());
-        paramMap.put("email", user.getEmail());
-        String query = "INSERT INTO user(user_name,email) VALUES(:user_name, :email)";
-        return template.update(query, paramMap);
-    }
-
     void deleteUserById(long id) {
 
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
                 "id", id);
         String query = "delete from user where id=:id";
         template.update(query, namedParameters);
-    }
-
-    void updateUser(User user) {
-
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("id", user.getId());
-        paramMap.put("user_name", user.getUserName());
-        paramMap.put("email", user.getEmail());
-        String query = "update user set user_name=:user_name, email=:email where id=:id ";
-        template.update(query, paramMap);
     }
 }
