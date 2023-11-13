@@ -30,6 +30,11 @@ public class AppController {
         return "aboutus";
     }
     
+    @GetMapping("/admin")
+    public String admin() {
+        return "redirect:/user/all";
+    }
+    
     // This is here TEMPORARILY until the User implementation is complete.
     // Once it is, /profile should map you straight to the seller page
     // if you are a seller.
