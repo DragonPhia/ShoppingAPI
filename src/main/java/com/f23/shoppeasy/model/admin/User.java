@@ -27,11 +27,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String username;
+    private String firstname;
+    private String lastname;
     private String email;
 
-    public User(String username, String email) {
-        this.username = username;
+    public User(String firstname, String lastname, String email) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
     }
 }
