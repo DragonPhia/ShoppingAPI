@@ -19,7 +19,10 @@ public class AppController {
     public String login() {
         return "login";
     }
-    
+        @GetMapping("/cart")
+    public String cart() {
+        return "redirect:/cart";
+    }
     @GetMapping("/contact")
     public String contact() {
         return "contact";
