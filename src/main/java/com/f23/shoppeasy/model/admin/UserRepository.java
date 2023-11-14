@@ -22,11 +22,11 @@ public class UserRepository {
 
     List<User> findAll() {
 
-        String query = "select id, username,email from user";
+        String query = "select id, firstname, lastname,email from user";
         return template.query(query,
                 (result, rowNum)
                 -> new User(result.getLong("id"),
-                        result.getString("username"), result.getString(
+                        result.getString("firstname"), result.getString("lastname"), result.getString(
                         "email")));
     }
 
