@@ -177,14 +177,16 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>ID #</th>
-                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last name</th>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="user : ${userList}">
                             <td> <a th:href="@{/user/id={id}(id=${user.id})}" th:text=" ${user.id}" > </a></td>                           
-                            <td th:text=" ${user.username}"></td>
+                            <td th:text=" ${user.firstname}"></td>
+                            <td th:text=" ${user.lastname}"></td>
                             <td th:text=" ${user.email}"></td>
                         </tr>
                     </tbody>
