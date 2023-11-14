@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppeasy Shopping Cart</title>
+</head>
+<body>
+    <h1>Welcome to Shoppeasy</h1>
+
+    <div id="items">
+        <h2>Available Items</h2>
+        <ul>
+            <li th:each="item : ${availableItems}">
+                <span th:text="${item}"></span>
+                <button th:onclick="'|addToCart(\'' + ${item} + '\')'|">Add to Cart</button>
+            </li>
+        </ul>
+    </div>
+
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul>
+            <li th:each="cartItem : ${cartItems}" th:text="${cartItem}"></li>
+        </ul>
+        <button onclick="clearCart()">Clear Cart</button>
+    </div>
+
+    <script th:inline="javascript">
+        function addToCart(item) {
+            const cartItems = document.getElementById('cart-items');
+            const li = document.createElement('li');
+            li.textContent = item;
+            cartItems.appendChild(li);
+        }
+
+        function clearCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
