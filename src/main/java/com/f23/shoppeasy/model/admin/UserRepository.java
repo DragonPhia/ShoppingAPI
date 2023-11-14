@@ -38,7 +38,7 @@ public class UserRepository {
                 BeanPropertyRowMapper.newInstance(User.class));
     }
 
-    void deleteUserById(long id) {
+    public void deleteUserById(long id) {
 
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
                 "id", id);
