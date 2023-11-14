@@ -12,17 +12,17 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    UserRepository repo;
+    UserRepository repository;
 
     public List<User> getAllUsers() {
-        return repo.findAll();
+        return repository.findAll();
     }
 
     public User getUser(long id) {
-        return repo.getUserById(id);
+        return repository.getUserById(id);
     }
 
     public void deleteUser(long id) {
-        repo.deleteUserById(id);
+        repository.deleteUserById(id);
     }
 }
