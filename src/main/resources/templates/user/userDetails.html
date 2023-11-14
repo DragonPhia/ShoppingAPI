@@ -173,15 +173,16 @@
         <div class="container"> 
 
             <div class="card" style="text-align:center;">                
-                <div class="card-body">
-                    <h5 class="card-title">User</h5>
-                    <p class="card-text" th:text=" 'ID: '+ ${user.id}" />
-                    <p class="card-text" th:text="'Name: '+${user.username}" />
-                    <p class="card-text" th:text="'Email: '+${user.email}" />                        
+                
+                    <h5 class="card-title" style="font-size: 30px">User Information</h5> 
+                    <p th:text=" 'ID: '+ ${user.id}" />
+                    <p th:text="'First Name: '+${user.firstname}" />
+                    <p th:text="'Last Name: '+${user.lastname}" />
+                    <p th:text="'Email: '+${user.email}" />                        
                     <a th:href="@{/user/delete/id={id}(id=${user.id})}" class="btn btn-danger">Delete</a>
 
                     <button type="button" class="btn btn-primary">Add Promo</button>
-                </div>
+                
             </div>
             <a href="/user/all" class="btn btn-secondary" >Go Back</a>
         </div>
