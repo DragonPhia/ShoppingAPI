@@ -18,7 +18,7 @@ public class CartController {
     public String getAllProducts(Model model) {
         model.addAttribute("productList",
                 service.getAllProducts());
-        return "cart";
+        return "cart/cart";
     }
 
     @GetMapping("/add-to-cart")
