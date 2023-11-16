@@ -20,7 +20,7 @@ public class UserRepository {
     @Autowired
     NamedParameterJdbcTemplate template;
 
-    List<User> findAll() {
+    public List<User> findAll() {
 
         String query = "select id, firstname, lastname,email from user";
         return template.query(query,
