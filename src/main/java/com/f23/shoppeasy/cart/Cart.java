@@ -25,11 +25,9 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String name;
     private String type;
     private double price;
     private int quantity;
     private String imageURL;
-
 }
