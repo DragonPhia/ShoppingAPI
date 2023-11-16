@@ -179,7 +179,7 @@
                     <p th:text="'First Name: '+${user.firstname}" />
                     <p th:text="'Last Name: '+${user.lastname}" />
                     <p th:text="'Email: '+${user.email}" />                        
-                    <a th:href="@{/user/delete/id={id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/user/delete/id={id}(id=${user.id})}" onclick="return confirm('Are you sure you want to delete this user');" class="btn btn-danger">Delete</a>
 
                     <button type="button" class="btn btn-primary">Add Promo</button>
                 
