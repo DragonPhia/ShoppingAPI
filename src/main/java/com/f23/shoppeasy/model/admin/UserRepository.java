@@ -31,18 +31,17 @@ public class UserRepository {
     }
 
     public User getUserById(long id) {
+        String query = "select * from user where id=:id ";
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
                 "id", id);
-        String query = "select * from user where id=:id ";
         return template.queryForObject(query, namedParameters,
                 BeanPropertyRowMapper.newInstance(User.class));
     }
 
     public void deleteUserById(long id) {
-
+        String query = "delete from user where id=:id";
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
                 "id", id);
-        String query = "delete from user where id=:id";
         template.update(query, namedParameters);
     }
 }
