@@ -32,13 +32,25 @@ public class CartController {
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable long id, Model model) {
         service.deleteProduct(id);
-        return "cart/cart";
+        return "redirect:/cart";
     }
     
-    @PostMapping("/clear-cart")
+    @GetMapping("/clear-cart")
     public String clearCart(Model model) {
         service.clearCart();
-        return "cart/cart";
+        return "redirect:/cart";
+    }
+    
+    @GetMapping("/checkout")
+    public String checkout(Model model) {
+        service.checkout();
+        return "cart/checkout";
+    }
+    
+    @GetMapping("/confirmation")
+    public String paid(Model model) {
+        service.paid();
+        return "cart/confirmation";
     }
     
 //    @PostMapping("/update/{id}")
