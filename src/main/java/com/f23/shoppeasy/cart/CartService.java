@@ -7,7 +7,7 @@ import java.util.Optional;
 
 @Service
 public class CartService {
-    
+
     @Autowired
     private CartRepository repo;
 
@@ -22,14 +22,21 @@ public class CartService {
     public void deleteProduct(long id) {
         repo.deleteById(id);
     }
-    
+
     public void clearCart() {
         repo.deleteAll();
     }
 
+    public void checkout() {
+        repo.findAll();
+    }
+
+    public void paid() {
+        repo.findAll();
+    }    
     public void addItemToCart(Cart cartItem) {
-            repo.save(cartItem);
-        }
+        repo.save(cartItem);
+    }
 
 //    public void updateCart(long productId, int newQuantity) {
 //        Optional<Cart> existingItem = repo.findById(productId);
@@ -49,7 +56,6 @@ public class CartService {
 //
 //        return totalPrice;
 //    }
-    
     // Save after quantity changes
     void saveProduct(Cart cartItem) {
         repo.save(cartItem);
