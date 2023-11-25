@@ -47,4 +47,15 @@ public class UserRepository {
                 "id", id);
         template.update(query, namedParameters);
     }
+
+    public int saveUser(User user) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("firstname", user.getFirstname());
+        paramMap.put("lastname", user.getLastname());
+        paramMap.put("email", user.getEmail());
+        paramMap.put("role", user.getRole());
+        paramMap.put("password", user.getPassword());
+        String query = "INSERT INTO user(firstname,lastname,email,role,password) VALUES(:firstname,:lastname,:email,:role,:password)";
+        return template.update(query, paramMap);
+    }
 }
