@@ -37,4 +37,16 @@ public class UserController {
         return "redirect:/user/all";
     }
 
+    @GetMapping("/new-user")
+    public String newUserForm(Model model) {
+        return "user/new-user";
+    }
+    
+    @PostMapping("/create")
+    public String createUser(User user) {
+
+        service.saveUser(user);
+        return "redirect:/user/all";
+    }
+
 }
