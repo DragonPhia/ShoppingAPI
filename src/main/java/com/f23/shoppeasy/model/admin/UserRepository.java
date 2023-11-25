@@ -22,12 +22,15 @@ public class UserRepository {
 
     public List<User> findAll() {
 
-        String query = "select id, firstname, lastname,email from user";
+        String query = "select id, firstname, lastname, email, role,password from user";
         return template.query(query,
                 (result, rowNum)
-                -> new User(result.getLong("id"),
-                        result.getString("firstname"), result.getString("lastname"), result.getString(
-                        "email")));
+                    -> new User(result.getLong("id"), 
+                        result.getString("firstname"), 
+                            result.getString("lastname"), 
+                            result.getString("email"),                             
+                            result.getString("role"), 
+                            result.getString("password")));
     }
 
     public User getUserById(long id) {
