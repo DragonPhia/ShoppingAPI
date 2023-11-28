@@ -44,4 +44,8 @@ public class ListingService {
     public void generateListing(Listing listing) {
         repository.save(listing);
     }
+    
+    public void updateListing(String name, double price, double discount, ListingStatus status, long listingId) {
+        repository.updateListing(name, price, discount, status, listingId);
+    }
 }

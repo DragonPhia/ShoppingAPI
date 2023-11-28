@@ -47,6 +47,42 @@ public class Listing {
         this.deliveryOrigin = deliveryOrigin;
         
         this.discount = 0;
-        this.status = ListingStatus.AVAILABLE;
+    }
+
+    public double getPrice() {
+        return this.price * this.discount;
+    }
+    
+    public void setPrice(double price) {
+        if (this.status == ListingStatus.AVAILABLE
+                || this.status == null) {
+            this.price = price;
+        }
+    }
+    
+    public void setDiscount(double discount) {
+        if (this.status == ListingStatus.AVAILABLE && discount <= 1) {
+            this.discount = discount;
+        }
+    }
+    
+    public void toggleStatus() {
+        if (this.status == null) {
+            this.status = ListingStatus.AVAILABLE;
+            this.discount = 1;
+            return;
+        }
+        
+        switch (this.status) {
+            case AVAILABLE -> {
+                this.status = ListingStatus.PURCHASED;
+            }
+            case PURCHASED -> {
+                this.status = ListingStatus.SHIPPED;
+            }
+            case SHIPPED -> {
+                this.status = ListingStatus.ARRIVED;
+            }
+        }
     }
 }
