@@ -65,6 +65,7 @@ public class ListingController {
         model.addAttribute("listingList", 
                 listingService.getByName(keyword));
         model.addAttribute("keyword", keyword);
+        model.addAttribute("defaultUserId", 1);
         return "listings/search";
     }
     

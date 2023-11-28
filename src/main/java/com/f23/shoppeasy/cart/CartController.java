@@ -24,8 +24,16 @@ public class CartController {
         return "cart/cart";
     }
 
-    @GetMapping("/add-to-cart")
-    public String addItemToCart(Model model) {
+    @GetMapping("/add-to-cart/listing={listingId}&user={userId}")
+    public String addItemToCart(Model model, @PathVariable long listingId, @PathVariable long userId) {
+        System.out.println("Test");
+        CartEntry cart = new CartEntry();
+        cart.setItemId(listingId);
+        cart.setUserId(userId);
+        cart.setDestination("Placeholder");
+        
+        service.addItemToCart(cart);
+        
         return "cart/cart";
     }
 
@@ -43,13 +51,13 @@ public class CartController {
     
     @GetMapping("/checkout")
     public String checkout(Model model) {
-        service.checkout();
+        service.checkout(1);
         return "cart/checkout";
     }
     
     @GetMapping("/confirmation")
     public String paid(Model model) {
-        service.paid();
+        service.paid(1);
         return "cart/confirmation";
     }
     

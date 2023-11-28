@@ -10,24 +10,35 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+// NOTE
+// Did a bunch of editing to all of the Cart files on this branch, feel free to
+// keep the bits you like and discard anything you don't. It is incomplete,
+// by the by, but it's like 80% of the way to functional. The rest is just
+// boilerplate (updating cart html, etc.).
+
 /**
  *
  * @author csc340-f23
  */
 @Entity
-@Table(name = "product")
+@Table(name = "user_cart_entry")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Cart {
-
+public class CartEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+/*
     private String name;
     private String type;
     private double price;
     private int quantity;
     private String imageURL;
+*/
+    
+    private long userId;
+    private long itemId;
+    private String destination;
 }

@@ -11,11 +11,11 @@ public class CartService {
     @Autowired
     private CartRepository repo;
 
-    public Cart getCart() {
-        return new Cart();
+    public CartEntry getCart() {
+        return new CartEntry();
     }
 
-    public List<Cart> getAllProducts() {
+    public List<CartEntry> getAllProducts() {
         return repo.findAll();
     }
 
@@ -27,14 +27,14 @@ public class CartService {
         repo.deleteAll();
     }
 
-    public void checkout() {
-        repo.findAll();
+    public void checkout(long userId) {
+        repo.findAll(userId);
     }
 
-    public void paid() {
-        repo.findAll();
+    public void paid(long userId) {
+        repo.findAll(userId);
     }    
-    public void addItemToCart(Cart cartItem) {
+    public void addItemToCart(CartEntry cartItem) {
         repo.save(cartItem);
     }
 
@@ -57,7 +57,7 @@ public class CartService {
 //        return totalPrice;
 //    }
     // Save after quantity changes
-    void saveProduct(Cart cartItem) {
+    void saveProduct(CartEntry cartItem) {
         repo.save(cartItem);
     }
 }
