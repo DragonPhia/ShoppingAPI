@@ -22,12 +22,11 @@ public class UserRepository {
 
     public List<User> findAll() {
 
-        String query = "select id, firstname, lastname, email, role,password from user";
+        String query = "select id, user_name, email, role,password from user";
         return template.query(query,
                 (result, rowNum)
                     -> new User(result.getLong("id"), 
-                        result.getString("firstname"), 
-                            result.getString("lastname"), 
+                        result.getString("user_name"), 
                             result.getString("email"),                             
                             result.getString("role"), 
                             result.getString("password")));
@@ -50,12 +49,20 @@ public class UserRepository {
 
     public int saveUser(User user) {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("firstname", user.getFirstname());
-        paramMap.put("lastname", user.getLastname());
+        paramMap.put("userName", user.getUserName());
         paramMap.put("email", user.getEmail());
         paramMap.put("role", user.getRole());
         paramMap.put("password", user.getPassword());
-        String query = "INSERT INTO user(firstname,lastname,email,role,password) VALUES(:firstname,:lastname,:email,:role,:password)";
+        String query = "INSERT INTO user(user_name,email,role,password) VALUES(:userName,:email,:role,:password)";
         return template.update(query, paramMap);
+    }
+    
+    public void updateUser(User user) {
+
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("id", user.getId());
+        paramMap.put("role", user.getRole());
+        String query = "update user set role=:role where id=:id ";
+        template.update(query, paramMap);
     }
 }
