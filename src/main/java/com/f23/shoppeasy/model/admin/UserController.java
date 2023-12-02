@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -19,11 +20,16 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    /*
     @GetMapping("/all")
     public String getAllUsers(Model model) {
         model.addAttribute("userList", service.getAllUsers());
         return "user/userListing";
     }
+    */
+    
+    
+    
 
     @GetMapping("/id={id}")
     public String getUser(@PathVariable long id, Model model) {
@@ -48,5 +54,24 @@ public class UserController {
         service.saveUser(user);
         return "redirect:/user/all";
     }
+    
+    @GetMapping("/all")
+    public String getAllUsers(Model model,
+            @RequestParam(name = "continue",required = false) String cont) {
+        model.addAttribute("userList", service.getAllUsers());
+        return "user/userListing";
+    }
+    
+    @PostMapping("/update")
+    public String updateUser(User user) {
+        service.updateUser(user);
+        return "redirect:/user/all";
+    }
 
+    @GetMapping("/update/id={id}")
+    public String updateUserForm(@PathVariable long id, Model model) {
+        model.addAttribute("user", service.getUser(id));
+        return "user/update-role";
+    }
+    
 }
