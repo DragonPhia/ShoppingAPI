@@ -29,15 +29,12 @@ import lombok.Setter;
 public class CartEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-/*
+    public long id;
+
     private String name;
     private String type;
     private double price;
     private int quantity;
-    private String imageURL;
-*/
-    
     private long userId;
     private long itemId;
     private String destination;
