@@ -173,15 +173,14 @@
 
         <div class="container">
             <div style="align-content: center;">
-                  <p class="my-5">
+                <p class="my-5">
                     <a href="/user/new-user" class="btn btn-primary" >Add User</a>
-                  </p>
+                </p>
                 <table class="table table-borderless">
                     <thead class="thead-dark">
                         <tr>
                             <th>ID #</th>
-                            <th>First Name</th>
-                            <th>Last name</th>
+                            <th>Username</th>
                             <th>Email</th>                            
                             <th>Role</th>  
                         </tr>
@@ -189,14 +188,18 @@
                     <tbody>
                         <tr th:each="user : ${userList}">
                             <td> <a th:href="@{/user/id={id}(id=${user.id})}" th:text=" ${user.id}" > </a></td>                           
-                            <td th:text=" ${user.firstname}"></td>
-                            <td th:text=" ${user.lastname}"></td>
+                            <td th:text=" ${user.userName}"></td>
                             <td th:text=" ${user.email}"></td>
                             <td th:text=" ${user.role}"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <form class="form-inline" th:action="@{/logout}" method="post">                
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
+            </form>
         </div>
+
     </body>
 </html>
+
