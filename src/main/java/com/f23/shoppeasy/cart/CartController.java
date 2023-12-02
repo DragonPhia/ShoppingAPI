@@ -26,14 +26,13 @@ public class CartController {
 
     @GetMapping("/add-to-cart/listing={listingId}&user={userId}")
     public String addItemToCart(Model model, @PathVariable long listingId, @PathVariable long userId) {
-        System.out.println("Test");
         CartEntry cart = new CartEntry();
         cart.setItemId(listingId);
         cart.setUserId(userId);
         cart.setDestination("Placeholder");
-        
+
         service.addItemToCart(cart);
-        
+
         return "cart/cart";
     }
 
@@ -42,25 +41,27 @@ public class CartController {
         service.deleteProduct(id);
         return "redirect:/cart";
     }
-    
+
     @GetMapping("/clear-cart")
     public String clearCart(Model model) {
         service.clearCart();
         return "redirect:/cart";
     }
-    
+
     @GetMapping("/checkout")
     public String checkout(Model model) {
-        service.checkout(1);
+        System.out.println(service.checkout(1).size());
+        model.addAttribute("productList",
+                service.checkout(1));
         return "cart/checkout";
     }
-    
+
     @GetMapping("/confirmation")
     public String paid(Model model) {
-        service.paid(1);
+        service.paid(1, 123.43);
         return "cart/confirmation";
     }
-    
+
 //    @PostMapping("/update/{id}")
 //    public String updateCart(@PathVariable long id, @RequestParam("quantity") int quantity, Model model) {
 //        service.updateCart(id, quantity);
