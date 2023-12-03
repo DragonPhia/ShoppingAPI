@@ -32,8 +32,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                 .dispatcherTypeMatchers(DispatcherType.FORWARD,
                         DispatcherType.ERROR).permitAll()
-                //.requestMatchers("/listings/**").hasAuthority("MOD")
-                //.requestMatchers("/user/**").hasAuthority("ADMIN")
+                .requestMatchers("/listings/**").hasAuthority("SELLER")
+                .requestMatchers("/user/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
