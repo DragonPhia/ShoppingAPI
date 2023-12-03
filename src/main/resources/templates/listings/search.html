@@ -174,14 +174,16 @@
         </div>
 
         <div class="listing-nav">
-            <div class="column">
                 <div class="entry" th:each="listing : ${listingList}">
                     <p><a th:href="@{/listings/id={id}(id=${listing.id})}" th:text="${listing.id}" /></p>
                     <p th:text="${listing.name}" />
                     <p th:text="${listing.price}" />
                     <form th:action="@{/cart/add-to-cart/listing={listingId}&user=1 (listingId=${listing.id})}">
-                        <button>Add to Cart</button>
+                        <button class="btn btn-primary">Add to Cart</button>
                     </form>
+                    <a href="#" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-heart"></span> Wishlist
+                    </a>
                     <p th:text="|Minimum shipping time: ${shippingDistance} minutes|" />
                 </div>
             </div>
