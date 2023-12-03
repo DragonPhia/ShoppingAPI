@@ -15,7 +15,7 @@ import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 /**
  *
- * @author sentini
+ * @author drago
  */
 @Configuration
 @EnableWebSecurity
