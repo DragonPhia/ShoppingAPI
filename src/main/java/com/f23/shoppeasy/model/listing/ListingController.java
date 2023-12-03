@@ -1,5 +1,6 @@
 package com.f23.shoppeasy.model.listing;
 
+import com.f23.shoppeasy.apiManager.ApiRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -62,6 +63,13 @@ public class ListingController {
     
     @GetMapping("/search")
     public String getProducts(Model model, @Param("keyword") String keyword) {
+        // Example values to test API
+        ApiRequest request = new ApiRequest(13.188860, 
+                                        52.517037, 
+                                        13.397634, 
+                                        52.529407);
+        
+        model.addAttribute("shippingDistance", request.getResponse());
         model.addAttribute("listingList", 
                 listingService.getByName(keyword));
         model.addAttribute("keyword", keyword);
