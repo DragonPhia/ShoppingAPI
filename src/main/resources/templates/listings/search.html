@@ -153,7 +153,7 @@
                 flex: 1;
             }
 
-            .listing-nav .entry p {
+            .listing-nav .entry p, form {
                 padding: 10px;
             }
         </style>
@@ -179,6 +179,10 @@
                     <p><a th:href="@{/listings/id={id}(id=${listing.id})}" th:text="${listing.id}" /></p>
                     <p th:text="${listing.name}" />
                     <p th:text="${listing.price}" />
+                    <form th:action="@{/cart/add-to-cart/listing={listingId}&user=1 (listingId=${listing.id})}">
+                        <button>Add to Cart</button>
+                    </form>
+                    <p th:text="|Minimum shipping time: ${shippingDistance} minutes|" />
                 </div>
             </div>
         </div>

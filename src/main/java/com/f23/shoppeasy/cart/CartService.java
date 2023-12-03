@@ -15,7 +15,7 @@ public class CartService {
         return new Cart();
     }
 
-    public List<Cart> getAllProducts() {
+    public List<CartEntry> getAllProducts() {
         return repo.findAll();
     }
 
@@ -34,7 +34,7 @@ public class CartService {
     public void paid() {
         repo.findAll();
     }    
-    public void addItemToCart(Cart cartItem) {
+    public void addItemToCart(CartEntry cartItem) {
         repo.save(cartItem);
     }
 
@@ -57,7 +57,7 @@ public class CartService {
 //        return totalPrice;
 //    }
     // Save after quantity changes
-    void saveProduct(Cart cartItem) {
+    void saveProduct(CartEntry cartItem) {
         repo.save(cartItem);
     }
 }
