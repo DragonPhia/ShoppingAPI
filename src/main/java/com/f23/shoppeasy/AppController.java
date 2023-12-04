@@ -1,5 +1,8 @@
 package com.f23.shoppeasy;
 
+import com.f23.shoppeasy.model.admin.UserService;
+import java.security.Principal;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @Controller
 public class AppController {
+    @Autowired
+    private UserService userService;
+    
     @GetMapping(value = {"", "/", "/index"})
     public String landing() {
         return "index";
@@ -43,14 +49,9 @@ public class AppController {
     public String admin() {
         return "redirect:/user/all";
     }
-    
-    // This is here TEMPORARILY until the User implementation is complete.
-    // Once it is, /profile should map you straight to the seller page
-    // if you are a seller.
-    //
-    // For the time being, uses a default sellerId (1).
-    @GetMapping("/seller={sellerId}")
-    public String seller(@PathVariable long sellerId) {
-        return "redirect:/listings/seller=" + sellerId; // Hands off control to ListingController
+
+    @GetMapping("/seller")
+    public String seller(Principal principal) {
+        return "redirect:/listings/seller"; // Hands off control to ListingController
     }
 }

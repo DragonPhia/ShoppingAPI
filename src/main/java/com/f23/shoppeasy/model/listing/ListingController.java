@@ -1,6 +1,8 @@
 package com.f23.shoppeasy.model.listing;
 
 import com.f23.shoppeasy.apiManager.ApiRequest;
+import com.f23.shoppeasy.model.admin.UserService;
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ListingController {
     @Autowired
     private ListingService listingService;
+    
+    @Autowired
+    private UserService userService;
+    
     
     @PostMapping("/generate/seller={sellerId}")
     public String generateListing(@PathVariable long sellerId, Listing listing) {
@@ -77,8 +83,10 @@ public class ListingController {
         return "listings/search";
     }
     
-    @GetMapping("/seller={sellerId}")
-    public String getCurrentSellerProducts(Model model, @PathVariable long sellerId) {
+    @GetMapping("/seller")
+    public String getCurrentSellerProducts(Principal principal, Model model) {
+        long sellerId = userService.getUserByUserName(principal.getName()).getId();
+        
         model.addAttribute("sellerListings",
                 listingService.getBySellerId(sellerId));
         model.addAttribute("sellerId", sellerId);
