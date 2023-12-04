@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @Controller
 public class AppController {
-    @GetMapping(value = {"", "/"})
+    @GetMapping(value = {"", "/", "/index"})
     public String landing() {
         return "index";
+    }
+    
+    @GetMapping("/403")
+    public String accessDenied() {
+        return "403";
     }
     
     @GetMapping("/login")
