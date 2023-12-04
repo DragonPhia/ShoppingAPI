@@ -1,18 +1,21 @@
 package com.f23.shoppeasy.cart;
 
+import com.f23.shoppeasy.model.transaction.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CartService {
 
     @Autowired
     private CartRepository repo;
+    
+    @Autowired
+    private TransactionRepository transactionRepo;
 
-    public Cart getCart() {
-        return new Cart();
+    public CartEntry getCart() {
+        return new CartEntry();
     }
 
     public List<CartEntry> getAllProducts() {
@@ -27,13 +30,14 @@ public class CartService {
         repo.deleteAll();
     }
 
-    public void checkout() {
-        repo.findAll();
+    public List<CartEntry> checkout(long userId) {
+        return repo.findAll(userId);
     }
 
-    public void paid() {
-        repo.findAll();
+    public void paid(long userId, double total) {
+        transactionRepo.save(userId, total);
     }    
+    
     public void addItemToCart(CartEntry cartItem) {
         repo.save(cartItem);
     }
