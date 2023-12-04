@@ -159,37 +159,40 @@
 
         <div class="container" style="text-align:center;"> 
 
-            <div class="card" style="text-align:center;">                
+            <div class="card" style="text-align:center;">           
+
+                <h5 class="card-title" style="font-size: 30px">Update User Role</h5> 
+
                 <form action="#" th:action="@{/user/update}" th:object="${user}" method="post">
 
-                    <h5 class="card-title" style="font-size: 30px">Update User Role</h5> 
+
                     <table border="0" cellpadding="10" align="center">  
 
                         <tr>
                             <td>ID:</td>
-                            <td align="center"><input type="number" th:field="*{id}" value="${user.id}" readonly /></td>
+                            <td align="center"><input type="text" th:field="*{id}" value="${user.id}" style="color:#C8C8C8" readonly /></td>
                         </tr>
                         <tr>
                             <td>Username:</td>
-                            <td align="center"><input type="text" th:field="*{userName}" value="${user.userName}" readonly/></td>
+                            <td align="center"><input type="text" th:field="*{userName}" value="${user.userName}" style="color:#C8C8C8" readonly/></td>
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td align="center"><input type="email" th:field="*{email}"  value="${user.email}" readonly/></td>
+                            <td align="center"><input type="text" th:field="*{email}"  value="${user.email}" style="color:#C8C8C8" readonly/></td>
                         </tr>    
 
                         <tr>
-                            <td>Role:</td>
+                            <td style="color:#ff0000">Role:</td>
                             <td align="center">
-                                <select th:field="*{role}" name="role" id="role"class="form-control form-control-sm">
-                                    <option value="USER">User</option>
-                                    <option value="SELLER">Seller</option>
-                                    <option value="ADMIN">Admin</option>
+                                <select th:field="*{role}" name="role" id="role"class="form-control form-control-sm" style="color:#ff0000">
+                                    <option value="USER" style="color:#ff0000">User</option>
+                                    <option value="SELLER" style="color:#ff0000">Seller</option>
+                                    <option value="ADMIN" style="color:#ff0000">Admin</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td><button type="submit">Save</button> </td>
+                            <td><button type="submit" class="btn btn-primary">Save</button> </td>
                             <td> <a href="/user/all" class="btn btn-secondary" >Go Back</a></td>
                         </tr>
 
@@ -200,11 +203,6 @@
 
 
         </div>
-
-
-
-
-
-
     </body>
 </html>
+
