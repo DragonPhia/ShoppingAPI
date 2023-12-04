@@ -37,9 +37,16 @@
                 font-family: Georgia, 'Times New Roman', Times, serif
             }
 
-            h1, h2, p {
+            h1, h2 {
                 font-family: "Sans-serif";
                 letter-spacing: 1px;
+            }
+            
+            p {
+                font-family: "Sans-serif";
+                letter-spacing: 1px;
+                font-size: 20px;
+                
             }
 
             *, *:before, *:after {
@@ -154,9 +161,9 @@
             <a class="active" th:href='@{/}'>Home</a>
             <input type="text" placeholder="Search for anything" th:href="@{/search}" />
             <div class="nav-item"><a href='search.html'><img src="glass.png" alt="glass" width="20px"/></a></div>
-            <div class="nav-item"><a th:href="@{/login}">Login</a></div>
-            <div class="nav-item"><a th:href="@{/user/all}">Admin</a></div>
-            <div class="nav-item"><a th:href='@{/seller=1}'>Seller</a></div>
+            <div class="nav-item"><a th:href="@{/logout}">Logout</a></div>
+            <div class="nav-item"><a th:href="@{/admin}">Admin</a></div>
+            <div class="nav-item"><a th:href='@{/seller}'>Seller</a></div>
             <div class="nav-item"><a th:href='@{/about-us}'>About</a></div>
             <div class="nav-item"><a th:href='@{/contact}'>Contact</a></div>
             <div class="nav-item"><a th:href='@{/cart}'>Cart</a></div>
@@ -174,21 +181,18 @@
 
             <div class="card" style="text-align:center;">                
 
-                <h5 class="card-title" style="font-size: 30px">User Information</h5> 
+                <h5 class="card-title" style="font-size: 40px">User Information</h5> 
                 <p th:text=" 'ID: '+ ${user.id}" />
                 <p th:text="'Username: '+${user.userName}" />
                 <p th:text="'Email: '+${user.email}" />                                
                 <p th:text="'Role: '+${user.role}" /> 
                 <a th:href="@{/user/update/id={id}(id=${user.id})}" class="btn btn-primary">Edit Role</a>
                 <a th:href="@{/user/delete/id={id}(id=${user.id})}" onclick="return confirm('Are you sure you want to delete this user');" class="btn btn-danger">Delete</a>
-   
+                <a href="/user/all" class="btn btn-secondary" >Go Back</a>
             </div>
 
             
         </div>
-
-
-        <a href="/user/all" class="btn btn-secondary" >Go Back</a>
      
     </body>
 </html>
