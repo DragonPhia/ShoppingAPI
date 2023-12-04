@@ -6,7 +6,7 @@ package com.f23.shoppeasy.model.user;
  * Used for redirects & security features.
  */
 public enum UserAccountType {
-    STANDARD,
+    BUYER,
     SELLER,
     ADMIN
 }
