@@ -6,9 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Shoppeasy. Search page</title>
         <link th:href="@{style.css}" rel="stylesheet" type="text/css" />
-        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-                        body {
+            body {
                 font-family: Georgia, 'Times New Roman', Times, serif
             }
 
@@ -23,7 +25,7 @@
 
             .nav-top {
                 overflow: hidden;
-                
+
                 background-color: #e9e9e9;
                 height: 50px;
                 border-bottom: 1px solid #8034eb;
@@ -119,7 +121,7 @@
                     border: 1px solid #ccc;
                 }
             }
-            
+
             .listing-nav {
                 border: none;
                 padding: 5px;
@@ -153,7 +155,7 @@
                 flex: 1;
             }
 
-            .listing-nav .entry p, form {
+            .listing-nav .entry p {
                 padding: 10px;
             }
         </style>
@@ -174,6 +176,7 @@
         </div>
 
         <div class="listing-nav">
+            <div class="column">
                 <div class="entry" th:each="listing : ${listingList}">
                     <p><a th:href="@{/listings/id={id}(id=${listing.id})}" th:text="${listing.id}" /></p>
                     <p th:text="${listing.name}" />
@@ -181,10 +184,10 @@
                     <form th:action="@{/cart/add-to-cart/listing={listingId}&user=1 (listingId=${listing.id})}">
                         <button class="btn btn-primary">Add to Cart</button>
                     </form>
-                    <a href="#" class="btn btn-info btn-lg">
-                        <span class="glyphicon glyphicon-heart"></span> Wishlist
+                    <form th:action="@{/wishlist/add-to-wishlist/listing={listingId}&user=1 (listingId=${listing.id})}">
+                        <button class="btn btn-info">Wishlist</button>
+                        </form>
                     </a>
-                    <p th:text="|Minimum shipping time: ${shippingDistance} minutes|" />
                 </div>
             </div>
         </div>
