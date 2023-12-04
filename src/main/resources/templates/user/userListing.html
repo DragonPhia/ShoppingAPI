@@ -155,7 +155,7 @@
             <a class="active" th:href='@{/}'>Home</a>
             <input type="text" placeholder="Search for anything" th:href="@{/search}" />
             <div class="nav-item"><a href='search.html'><img src="glass.png" alt="glass" width="20px"/></a></div>
-            <div class="nav-item"><a th:href="@{/login}">Login</a></div>
+            <div class="nav-item"><a th:href="@{/logout}">Logout</a></div>
             <div class="nav-item"><a th:href="@{/user/all}">Admin</a></div>
             <div class="nav-item"><a th:href='@{/seller=1}'>Seller</a></div>
             <div class="nav-item"><a th:href='@{/about-us}'>About</a></div>
@@ -173,9 +173,7 @@
 
         <div class="container">
             <div style="align-content: center;">
-                <p class="my-5">
-                    <a href="/user/new-user" class="btn btn-primary" >Add User</a>
-                </p>
+                
                 <table class="table table-borderless">
                     <thead class="thead-dark">
                         <tr>
@@ -195,9 +193,7 @@
                     </tbody>
                 </table>
             </div>
-            <form class="form-inline" th:action="@{/logout}" method="post">                
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
-            </form>
+            
         </div>
 
     </body>
