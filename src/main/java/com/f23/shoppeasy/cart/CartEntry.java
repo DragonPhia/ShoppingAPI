@@ -10,12 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-// NOTE
-// Did a bunch of editing to all of the Cart files on this branch, feel free to
-// keep the bits you like and discard anything you don't. It is incomplete,
-// by the by, but it's like 80% of the way to functional. The rest is just
-// boilerplate (updating cart html, etc.).
-
 /**
  *
  * @author csc340-f23
