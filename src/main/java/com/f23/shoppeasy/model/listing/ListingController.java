@@ -27,7 +27,7 @@ public class ListingController {
     public String generateListing(@PathVariable long sellerId, Listing listing) {
         listing.toggleStatus();
         listingService.generateListing(listing);
-        return "redirect:/listings/seller=" + sellerId;
+        return "redirect:/listings/seller";
     }
     
     @PostMapping("/edit/generate/id={listingId}")
@@ -53,7 +53,7 @@ public class ListingController {
         
         listingService.updateListing(name, price, discount, target.getStatus(), listingId);
         
-        return "redirect:/listings/id=" + listingId;
+        return "redirect:/listings/seller";
     }
     
     @GetMapping("/edit/id={listingId}")
@@ -65,22 +65,6 @@ public class ListingController {
         model.addAttribute("listingPrice", target.getPrice());
         model.addAttribute("listingStatus", target.getStatus().name());
         return "listings/edit";
-    }
-    
-    @GetMapping("/search")
-    public String getProducts(Model model, @Param("keyword") String keyword) {
-        // Example values to test API
-        ApiRequest request = new ApiRequest(13.188860, 
-                                        52.517037, 
-                                        13.397634, 
-                                        52.529407);
-        
-        model.addAttribute("shippingDistance", request.getResponse());
-        model.addAttribute("listingList", 
-                listingService.getByName(keyword));
-        model.addAttribute("keyword", keyword);
-        model.addAttribute("defaultUserId", 1);
-        return "listings/search";
     }
     
     @GetMapping("/seller")

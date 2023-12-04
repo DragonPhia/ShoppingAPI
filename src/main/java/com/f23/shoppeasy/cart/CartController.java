@@ -31,7 +31,7 @@ public class CartController {
 
         service.addItemToCart(cart);
 
-        return "redirect:/listings/search";
+        return "redirect:/cart";
     }
 
     @GetMapping("/delete/{id}")

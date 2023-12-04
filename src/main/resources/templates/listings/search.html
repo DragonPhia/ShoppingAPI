@@ -181,10 +181,10 @@
                     <p><a th:href="@{/listings/id={id}(id=${listing.id})}" th:text="${listing.id}" /></p>
                     <p th:text="${listing.name}" />
                     <p th:text="${listing.price}" />
-                    <form th:action="@{/cart/add-to-cart/listing={listingId}&user=1 (listingId=${listing.id})}">
+                    <form th:action="@{/cart/add-to-cart/listing={listingId}&user={userId} (listingId=${listing.id}, userId=${userId})}">
                         <button class="btn btn-primary">Add to Cart</button>
                     </form>
-                    <form th:action="@{/wishlist/add-to-wishlist/listing={listingId}&user=1 (listingId=${listing.id})}">
+                    <form th:action="@{/wishlist/add-to-wishlist/listing={listingId}&user={userId} (listingId=${listing.id}, userId=${userId})}">
                         <button class="btn btn-info">Wishlist</button>
                         </form>
                     </a>

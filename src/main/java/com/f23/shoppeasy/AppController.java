@@ -1,11 +1,15 @@
 package com.f23.shoppeasy;
 
+import com.f23.shoppeasy.apiManager.ApiRequest;
 import com.f23.shoppeasy.model.admin.UserService;
+import com.f23.shoppeasy.model.listing.ListingService;
 import com.f23.shoppeasy.model.user.UserAccountType;
 import com.f23.shoppeasy.model.user.user;
 import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AppController {
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private ListingService listingService;
     
     @GetMapping(value = {"", "/", "/index"})
     public String landing() {
@@ -52,6 +59,23 @@ public class AppController {
         userService.saveUser(newUser);
         
         return "redirect:/login";
+    }
+    
+        
+    @GetMapping("/search")
+    public String getProducts(Model model, Principal principal, @Param("keyword") String keyword) {
+        // Example values to test API
+        ApiRequest request = new ApiRequest(13.188860, 
+                                        52.517037, 
+                                        13.397634, 
+                                        52.529407);
+        
+        model.addAttribute("shippingDistance", request.getResponse());
+        model.addAttribute("listingList", 
+                listingService.getByName(keyword));
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("userId", userService.getUserByUserName(principal.getName()).getId());
+        return "/listings/search";
     }
     
     @GetMapping("/cart")
