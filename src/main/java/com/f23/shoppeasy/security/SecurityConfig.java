@@ -34,6 +34,8 @@ public class SecurityConfig {
                         DispatcherType.ERROR).permitAll()
                 .requestMatchers("/listings/**").hasAuthority("SELLER")
                 .requestMatchers("/user/**").hasAuthority("ADMIN")
+                .requestMatchers("/create-account").anonymous()
+                .requestMatchers("/new-account").anonymous()
                 .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

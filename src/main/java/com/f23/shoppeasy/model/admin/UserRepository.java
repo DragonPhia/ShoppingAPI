@@ -1,5 +1,6 @@
 package com.f23.shoppeasy.model.admin;
 
+import com.f23.shoppeasy.model.user.user;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,13 +48,13 @@ public class UserRepository {
         template.update(query, namedParameters);
     }
 
-    public int saveUser(User user) {
+    public int saveUser(user user) {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("userName", user.getUserName());
+        paramMap.put("userName", user.getName());
         paramMap.put("email", user.getEmail());
-        paramMap.put("role", user.getRole());
+        paramMap.put("role", user.getAccountType().name());
         paramMap.put("password", user.getPassword());
-        String query = "INSERT INTO user(user_name,email,role,password) VALUES(:userName,:email,:role,:password)";
+        String query = "INSERT INTO user(email,password,role,user_name) VALUES(:email,:password,:role,:userName)";
         return template.update(query, paramMap);
     }
     

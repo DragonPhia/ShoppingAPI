@@ -1,5 +1,7 @@
 package com.f23.shoppeasy.model.admin;
 
+import com.f23.shoppeasy.model.user.UserAccountType;
+import com.f23.shoppeasy.model.user.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,7 +51,7 @@ public class UserController {
     }
     
     @PostMapping("/create")
-    public String createUser(User user) {
+    public String createUser(user user) {
 
         service.saveUser(user);
         return "redirect:/user/all";

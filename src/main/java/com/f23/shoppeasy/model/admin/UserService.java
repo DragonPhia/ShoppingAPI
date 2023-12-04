@@ -1,5 +1,6 @@
 package com.f23.shoppeasy.model.admin;
 
+import com.f23.shoppeasy.model.user.user;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +35,7 @@ public class UserService {
         repository.deleteUserById(id);
     }
 
-    public void saveUser(User user) {
+    public void saveUser(user user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         repository.saveUser(user);
     }
