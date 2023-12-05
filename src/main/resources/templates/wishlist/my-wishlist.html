@@ -186,7 +186,6 @@
                 <table class="table table-borderless">
                     <thead>
                         <tr>
-                            <th>Product ID</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Quantity</th>
@@ -197,13 +196,13 @@
 
                     <tbody>
                         <tr th:each="item : ${productList}">
-                            <td th:text="${item.id}"></td>
                             <td th:text="${item.name}"></td>
                             <td th:text="${item.type}"></td>
                             <td th:text="${item.quantity}"></td>
                             <td th:text="'$' + ${item.price}"></td>
                             <td>
-                                <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="btn btn-secondary">Remove item</a>
+                                <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="btn btn-secondary">Remove</a>                           
+                                <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="btn btn-success">Move to Cart</a>
                             </td>
                         </tr>
                     </tbody>
@@ -219,6 +218,6 @@
             </div>
         </div>
 
-                </body>
+    </body>
 
-                </html>
+</html>
