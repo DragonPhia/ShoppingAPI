@@ -181,13 +181,14 @@
             <h1 style="text-align:center;">Your Cart</h1>
         </div>
 
+        <a th:href="@{/my-wishlist}" class="btn btn-info">My Wishlist</a>
 
         <div class="container-fluid, mt-5">
             <div style="align-content: center;">
                 <table class="table table-borderless">
                     <thead>
                         <tr>
-                            <th>Product ID</th>
+
                             <th>Name</th>
                             <th>Type</th>
                             <th>Quantity</th>
@@ -198,14 +199,16 @@
 
                     <tbody>
                         <tr th:each="item : ${productList}">
-                            <td th:text="${item.id}"></td>
+
                             <td th:text="${item.name}"></td>
                             <td th:text="${item.type}"></td>
                             <td th:text="${item.quantity}"></td>
                             <td th:text="'$' + ${item.price}"></td>
                             <td>
-                                <a th:href="@{/cart/delete/{id}(id=${item.id})}" class="btn btn-secondary">Remove item</a>
+                                <a th:href="@{/cart/delete/{id}(id=${item.id})}" class="btn btn-secondary">Remove</a>
+                                <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="btn btn-success">Move to Wishlist</a>
                             </td>
+
                         </tr>
                     </tbody>
 
@@ -218,16 +221,16 @@
                     </form>
                     <a th:href="@{/cart/checkout}" class="btn btn-primary">Go to checkout</a>
                 </div>
+            </div>
         </div>
-        </div>
-        
-                <!-- <div>
-                    <form th:action="@{/cart/update-item/{productId}(productId=${cart.id})}" method="post">
-                        <input type="number" name="quantity" value="${cart.quantity}" />
-                        <button type="submit">Update Quantity</button>
-                    </form>
-    
-                </div> -->
-                </body>
 
-                </html>
+        <!-- <div>
+            <form th:action="@{/cart/update-item/{productId}(productId=${cart.id})}" method="post">
+                <input type="number" name="quantity" value="${cart.quantity}" />
+                <button type="submit">Update Quantity</button>
+            </form>
+
+        </div> -->
+    </body>
+
+</html>
