@@ -61,13 +61,13 @@ public class WishlistController {
     @GetMapping("/delete/{id}")
     public String removeItem(@PathVariable long id, Model model) {
         service.removeItem(id);
-        return "wishlist/my-wishlist";
+        return "redirect:/wishlist/user-wishlist";
     }
 
     @GetMapping("/empty-wishlist")
     public String clearWishlist(Model model) {
         service.clearWishlist();
-        return "redirect:/wishlist/my-wishlist";
+        return "redirect:/wishlist/user-wishlist";
     }
 
 }
