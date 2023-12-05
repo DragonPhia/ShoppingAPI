@@ -1,7 +1,9 @@
 package com.f23.shoppeasy.cart;
 
+import com.f23.shoppeasy.model.admin.UserService;
 import com.f23.shoppeasy.model.listing.Listing;
 import com.f23.shoppeasy.model.listing.ListingService;
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,9 @@ public class CartController {
     
     @Autowired
     ListingService listingService;
+    
+    @Autowired
+    UserService userService;
 
     @GetMapping("/list")
     public String getAllProducts(Model model) {
@@ -63,10 +68,12 @@ public class CartController {
     }
 
     @GetMapping("/checkout")
-    public String checkout(Model model) {
-        System.out.println(service.checkout(1).size());
+    public String checkout(Principal principal, Model model) {
+        long userId = userService.getUserByUserName(principal.getName()).getId();
+        
+        System.out.println(service.checkout(userId));
         model.addAttribute("productList",
-                service.checkout(1));
+                service.checkout(userId));
         return "cart/checkout";
     }
 

@@ -202,16 +202,16 @@
 
 
         <div th:each="item : ${productList}">
-          <div class="row border rounded" th:with="item = ${item.id}">
+          <div class="row border rounded">
             <div class="col">
               <!-- Item information -->
               <div th:text="${item.quantity}"></div>
               <div class="col">
-                <img th:src="@{${item.imageURL}}" class="img-fluid" />
+                <img class="img-fluid" />
               </div>
               <div class="col">
                 <div>
-                  <a th:href="@{${item.imageURL}}" th:title="${item.name}" target="_blank">
+                  <a th:title="${item.name}" target="_blank">
                     <b th:text="${item.name}"></b>
                   </a>
                 </div>
