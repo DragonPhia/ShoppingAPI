@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author sentini
+ * @author drago
  */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
