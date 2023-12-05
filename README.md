@@ -1,6 +1,6 @@
 # Shoppeasy
 >CSC 340 Project
->PLEASE IMPORT shoppeasy.sql file in phpadmin under a database named "shoppeasy".
+PLEASE IMPORT shoppeasy.sql file in phpadmin under a database named "shoppeasy".
 
 ## Shoppeasy
 
