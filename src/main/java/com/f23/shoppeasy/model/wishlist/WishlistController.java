@@ -31,7 +31,7 @@ public class WishlistController {
 
         service.addToWishlist(wishlist);
 
-        return "wishlist/my-wishlist";
+        return "redirect:/my-wishlist";
     }
 
     @GetMapping("/delete/{id}")
