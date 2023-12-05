@@ -1,7 +1,9 @@
 package com.f23.shoppeasy.model.wishlist;
 
+import com.f23.shoppeasy.model.admin.UserService;
 import com.f23.shoppeasy.model.listing.Listing;
 import com.f23.shoppeasy.model.listing.ListingService;
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +19,14 @@ public class WishlistController {
     WishlistService service;
     
     @Autowired
+    UserService userService;
+    
+    @Autowired
     ListingService listingService;
     
     @GetMapping("/all")
     public String getAllProducts(Model model) {
-        model.addAttribute("itemList",
+        model.addAttribute("productList",
                 service.getAllItems());
 
         return "wishlist/my-wishlist";
@@ -41,16 +46,15 @@ public class WishlistController {
         
         service.addToWishlist(wishlist);
 
-        return "wishlist/my-wishlist";
+        return "redirect:/wishlist/user-wishlist";
     }
 
     @GetMapping("/user-wishlist")
     public String getWishlistProducts(Principal principal, Model model) {
         long buyerId = userService.getUserByUserName(principal.getName()).getId();
 
-        model.addAttribute("wishlistListing",
-                listingService.getbyId(buyerId));
-        model.addAttribute("buyerId", buyerId);
+        model.addAttribute("productList",
+                service.getUserItems(buyerId));
         return "wishlist/my-wishlist";
     }
 

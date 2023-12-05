@@ -13,6 +13,10 @@ public class WishlistService {
     public List<WishlistEntry> getAllItems() {
         return repo.findAll();
     }
+    
+    public List<WishlistEntry> getUserItems(long userId) {
+        return repo.findAll(userId);
+    }
 
     public void addToWishlist(WishlistEntry item) {
         repo.save(item);
