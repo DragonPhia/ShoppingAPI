@@ -44,6 +44,16 @@ public class WishlistController {
         return "wishlist/my-wishlist";
     }
 
+    @GetMapping("/user-wishlist")
+    public String getWishlistProducts(Principal principal, Model model) {
+        long buyerId = userService.getUserByUserName(principal.getName()).getId();
+
+        model.addAttribute("wishlistListing",
+                listingService.getbyId(buyerId));
+        model.addAttribute("buyerId", buyerId);
+        return "wishlist/my-wishlist";
+    }
+
     @GetMapping("/delete/{id}")
     public String removeItem(@PathVariable long id, Model model) {
         service.removeItem(id);
