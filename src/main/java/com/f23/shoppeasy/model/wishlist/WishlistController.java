@@ -22,7 +22,7 @@ public class WishlistController {
     @GetMapping("/all")
     public String getAllProducts(Model model) {
         model.addAttribute("itemList",
-                service.getAllItems());
+                service.getAllProducts());
 
         return "wishlist/my-wishlist";
     }
@@ -41,7 +41,7 @@ public class WishlistController {
         
         service.addToWishlist(wishlist);
 
-        return "redirect:/wishlist/my-wishlist";
+        return "wishlist/my-wishlist";
     }
 
     @GetMapping("/delete/{id}")
