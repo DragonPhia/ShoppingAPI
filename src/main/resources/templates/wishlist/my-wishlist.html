@@ -202,7 +202,6 @@
                             <td th:text="'$' + ${item.price}"></td>
                             <td>
                                 <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="btn btn-secondary">Remove</a>                           
-                                <a th:href="@{/wishlist/delete/{id}(id=${item.id})}" class="btn btn-success">Move to Cart</a>
                             </td>
                         </tr>
                     </tbody>
