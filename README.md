@@ -1,8 +1,8 @@
 # Shoppeasy
 >CSC 340 Project
-PLEASE IMPORT shoppeasy.sql file in phpadmin under a database named "shoppeasy".
 
 ## Shoppeasy
+> PLEASE IMPORT shoppeasy.sql file in phpadmin under a database named "shoppeasy".
 
 ## Team Members
 >Dragon Phiansin, Jeong Kim, Samuel Johnson
