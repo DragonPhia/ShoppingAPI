@@ -61,6 +61,17 @@ public class ListingController {
         return "redirect:/listings/seller";
     }
     
+    @GetMapping("/delete/id={listingId}")
+    public String deleteListing(Principal principal, @PathVariable long listingId) {
+        Listing target = listingService.getbyId(listingId);
+        
+        if (userService.getUserByUserName(principal.getName()).getId() == target.getSellerId()) {
+            listingService.deleteListing(listingId);
+        }
+        
+        return "redirect:/listings/seller";
+    }
+    
     @GetMapping("/edit/id={listingId}")
     public String editListing(Model model, @PathVariable long listingId) {
         Listing target = listingService.getbyId(listingId);

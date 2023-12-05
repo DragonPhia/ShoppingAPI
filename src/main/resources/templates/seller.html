@@ -225,6 +225,9 @@
                         <p th:text="${listing.price}" />
                         <form th:action="@{/listings/edit/id=} + ${listing.id}">
                             <button>Edit</button>
+                        </form>   
+                        <form th:action="@{/listings/delete/id=} + ${listing.id}">
+                            <button>Delete</button>
                         </form>
                     </div>
                     <div class="entry">
