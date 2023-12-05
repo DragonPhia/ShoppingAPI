@@ -30,6 +30,7 @@ public class Listing {
     private double price;
     private double discount;
     private int sellerId;
+    private int quantityAvailable;
     private String name;
     private String deliveryOrigin;
     
@@ -47,6 +48,7 @@ public class Listing {
         this.deliveryOrigin = deliveryOrigin;
         
         this.discount = 0;
+        this.quantityAvailable = 1;
     }
 
     public double getPrice() {

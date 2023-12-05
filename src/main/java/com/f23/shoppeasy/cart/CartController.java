@@ -1,5 +1,7 @@
 package com.f23.shoppeasy.cart;
 
+import com.f23.shoppeasy.model.listing.Listing;
+import com.f23.shoppeasy.model.listing.ListingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,9 @@ public class CartController {
 
     @Autowired
     CartService service;
+    
+    @Autowired
+    ListingService listingService;
 
     @GetMapping("/list")
     public String getAllProducts(Model model) {
@@ -24,10 +29,21 @@ public class CartController {
 
     @GetMapping("/add-to-cart/listing={listingId}&user={userId}")
     public String addItemToCart(Model model, @PathVariable long listingId, @PathVariable long userId) {
+        Listing source = listingService.getbyId(listingId);
+        
         CartEntry cart = new CartEntry();
         cart.setItemId(listingId);
         cart.setUserId(userId);
+        cart.setPrice(source.getPrice());
+        cart.setName(source.getName());
+        cart.setQuantity(1);
         cart.setDestination("Placeholder");
+        
+        source.setQuantityAvailable(source.getQuantityAvailable() - 1);
+        
+        if (source.getQuantityAvailable() <= 0) {
+            listingService.deleteListing(listingId);
+        }
 
         service.addItemToCart(cart);
 

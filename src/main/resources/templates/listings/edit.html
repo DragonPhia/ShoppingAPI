@@ -205,12 +205,16 @@
                 <div class="column">
                     <form th:action="@{/listings/edit/generate/id=} + ${listingId}" method="post">
                         <div>
-                            <label for="name">Name:</label>
+                            <label>Name:</label>
                             <input type="text" name="name" />
                         </div>
                         <div>
-                            <label for="name">Price:</label>
+                            <label>Price:</label>
                             <input type="text" name="price" th:value="${listingPrice}" />
+                        </div>
+                        <div>
+                            <label>Quantity:</label>
+                            <input type="text" name="quantity" th:value="${listingQuantity}" />
                         </div>
                         <button>Submit</button>
                     </form>

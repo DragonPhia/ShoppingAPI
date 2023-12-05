@@ -35,6 +35,7 @@ public class ListingController {
             @PathVariable long listingId,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "price", required = false) Double price,
+            @RequestParam(value = "quantity", required = false) Integer quantity,
             @RequestParam(value = "discount", required = false) Double discount) {
         
         Listing target = listingService.getbyId(listingId);
@@ -47,11 +48,15 @@ public class ListingController {
             price = target.getPrice() / target.getDiscount();
         }
         
+        if (quantity == null) {
+            quantity = target.getQuantityAvailable();
+        }
+        
         if (discount == null) {
             discount = target.getDiscount();
         }
         
-        listingService.updateListing(name, price, discount, target.getStatus(), listingId);
+        listingService.updateListing(name, price, quantity, discount, target.getStatus(), listingId);
         
         return "redirect:/listings/seller";
     }

@@ -45,7 +45,7 @@ public class ListingService {
         repository.save(listing);
     }
     
-    public void updateListing(String name, double price, double discount, ListingStatus status, long listingId) {
-        repository.updateListing(name, price, discount, status, listingId);
+    public void updateListing(String name, double price, int quantity, double discount, ListingStatus status, long listingId) {
+        repository.updateListing(name, price, quantity, discount, status, listingId);
     }
 }

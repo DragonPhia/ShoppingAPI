@@ -21,9 +21,10 @@ public interface ListingRepository extends JpaRepository<Listing, Long> {
     
     @Modifying
     @Transactional
-    @Query("UPDATE Listing l SET l.name = :name, l.price = :price, l.discount = :discount, l.status = :status WHERE l.id = :id")
+    @Query("UPDATE Listing l SET l.name = :name, l.price = :price, l.quantityAvailable = :quantity, l.discount = :discount, l.status = :status WHERE l.id = :id")
     public void updateListing(@Param("name") String name,
             @Param("price") double price,
+            @Param("quantity") int quantity,
             @Param("discount") double discount,
             @Param("status") ListingStatus status,
             @Param("id") long listingId);
