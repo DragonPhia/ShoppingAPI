@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author csc340-f23
+ * @author drago
  */
 public interface UserRepositorySecurity extends JpaRepository<User, Long> {
 
