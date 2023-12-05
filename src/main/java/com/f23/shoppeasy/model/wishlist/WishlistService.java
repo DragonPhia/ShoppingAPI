@@ -10,7 +10,7 @@ public class WishlistService {
     @Autowired
     private WishlistRepository repo;
 
-    public List<WishlistEntry> getAllProducts() {
+    public List<WishlistEntry> getAllItems() {
         return repo.findAll();
     }
 
