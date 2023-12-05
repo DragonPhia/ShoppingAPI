@@ -181,6 +181,7 @@
                     <p></p>
                     <p th:text="${listing.name}" />
                     <p th:text="${listing.price}" />
+                    <p th:text="|Delivery time: ${shippingDistance} minutes|" />
                     <form th:action="@{/cart/add-to-cart/listing={listingId}&user={userId} (listingId=${listing.id}, userId=${userId})}">
                         <button class="btn btn-primary">Add to Cart</button>
                     </form>
