@@ -3,6 +3,10 @@
 
 ## Shoppeasy
 > PLEASE IMPORT shoppeasy.sql file in phpadmin under a database named "shoppeasy".
+admin1 - password
+seller1 - password1
+buyer1 - password1
+buyer2 - password2
 
 ## Team Members
 >Dragon Phiansin, Jeong Kim, Samuel Johnson
