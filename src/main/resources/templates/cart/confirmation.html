@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoppeasey. Your cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.min.css" rel="stylesheet">
+  <style>
+    *,
+    *:before,
+    :after {
+      box-sizing: border-box;
+    }
+
+    body {
+      color: #333;
+      font-size: 16px;
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+
+    .header {
+      padding: 30px;
+      text-align: center;
+      background: #481491;
+      color: white;
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+
+    a :hover,
+    a :active,
+    a :visited {
+      text-decoration: none;
+    }
+
+    .breadcrumb .sep {
+      padding: 0 5px;
+    }
+
+    label {
+      margin-bottom: 1rem;
+    }
+
+    .product {
+      border: 1px solid #c0c0c0;
+      height: 300px;
+      margin-bottom: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .product .image {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+
+    .product .image img {
+      max-height: 80%;
+      max-width: 80%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .product .info {
+      background-color: #1c7ad1cc;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      min-height: 100%;
+      opacity: 0;
+      transition: all 0.25s ease;
+      color: #fff !important;
+    }
+
+    .product .info .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    select {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .product :hover>.info {
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 2rem;
+    }
+
+    .cartDisplay div {
+      width: 75%;
+    }
+
+    .cartDisplay div h6 {
+      text-align: left;
+    }
+
+    .cartDisplay img {
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+
+<body class="cart">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Shoppeasy</h1>
+  </div>
+
+  <div id="nav-placeholder"></div>
+  <div class="container-fluid">
+    <br>
+    <br>
+    <h1>Order Confirmation</h1>
+    <div class="breadcrumb"><a th:href='@{/}'>Home</a><span class="sep"></span>
+      Order Confirmation
+    </div>
+
+    <h1>Thank you for your order!</h1>
+    
+    <div id="footer-placeholder"></div>
+  </div>
+</body>
+
+</html>
